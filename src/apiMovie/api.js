@@ -14,3 +14,19 @@ export const moviesAPI = () => {
 
   return y;
 };
+export const moviesSearchAPI = (query, page) => {
+  return axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=ru&page=${page}`,
+    options
+  );
+};
+
+export const fetchMoviePage = (id, x) => {
+  return axios.get(
+    `https://api.themoviedb.org/3/movie/${id}${
+      x === undefined ? "" : "/credits"
+    }?language=en-US`,
+    options
+  );
+};
+
